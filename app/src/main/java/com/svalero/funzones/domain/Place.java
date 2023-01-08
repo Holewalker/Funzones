@@ -4,6 +4,8 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity(indices = {@Index(value = {"id"}, unique = true)})
 
-public class Place {
+public class Place implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private long id;
     private String name;
@@ -22,4 +24,11 @@ public class Place {
     private double latitude;
     private double longitude;
 
+    public Place(String name, String description, String address, double latitude, double longitude) {
+        this.name = name;
+        this.description = description;
+        this.address = address;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
 }

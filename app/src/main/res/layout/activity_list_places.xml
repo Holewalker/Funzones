@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListUsers">
+    tools:context=".ListPlaces">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvListPlaces"
@@ -18,7 +18,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btnReturn"
+        android:id="@+id/btnReturn3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:onClick="returnNav"

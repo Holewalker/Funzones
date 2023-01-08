@@ -63,10 +63,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.SuperheroHolde
         public SuperheroHolder(View view) {
             super(view);
             parentView = view;
-            username = view.findViewById(R.id.listUsername);
-            password = view.findViewById(R.id.listPassword);
-            email = view.findViewById(R.id.listEmail);
-            delete = view.findViewById(R.id.btnDelete);
+            username = view.findViewById(R.id.listName);
+            password = view.findViewById(R.id.listDescription);
+            email = view.findViewById(R.id.listAddress);
+            delete = view.findViewById(R.id.btnEdit);
 
 
             delete.setOnClickListener(v -> deleteUser(getAdapterPosition()));

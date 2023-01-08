@@ -28,22 +28,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /*
-        public void addActivityNav() {
+        public void addActivityNav(View view) {
             Intent intent = new Intent(MainActivity.this, AddActivity.class);
             startActivity(intent);
         }
-        public void addPlaceNav() {
+        public void addPlaceNav(View view) {
             Intent intent = new Intent(MainActivity.this, AddPlace.class);
             startActivity(intent);
         }
-        public void listActivitiesNav() {
+        public void listActivitiesNav(View view) {
             Intent intent = new Intent(MainActivity.this, ListActivities.class);
             startActivity(intent);
         }
-        public void listPlacesNav() {
-            Intent intent = new Intent(MainActivity.this, ListPlaces.class);
-            startActivity(intent);
-        }*/
+       */
+
+    public void listPlacesNav(View view) {
+        Intent intent = new Intent(MainActivity.this, ListPlaces.class);
+        startActivity(intent);
+    }
+    public void addPlaceNav(View view) {
+        Intent intent = new Intent(MainActivity.this, AddPlace.class);
+        startActivity(intent);
+    }
     public void listUsersNav(View view) {
         Intent intent = new Intent(MainActivity.this, ListUsers.class);
         startActivity(intent);

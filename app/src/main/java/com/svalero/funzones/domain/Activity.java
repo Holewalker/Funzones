@@ -10,6 +10,7 @@ import androidx.room.TypeConverters;
 
 import com.svalero.funzones.utils.DateConverter;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -37,7 +38,7 @@ import lombok.NoArgsConstructor;
                 @Index("id_user"),
                 @Index("id_place"),
         })
-public class Activity {
+public class Activity implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private long id;
     private long id_user;

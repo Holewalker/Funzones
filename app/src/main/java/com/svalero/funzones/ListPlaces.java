@@ -11,43 +11,43 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.svalero.funzones.adapter.UserAdapter;
+import com.svalero.funzones.adapter.PlaceAdapter;
 import com.svalero.funzones.db.AppDatabase;
-import com.svalero.funzones.domain.User;
+import com.svalero.funzones.domain.Place;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListUsers extends AppCompatActivity {
-    private List<User> users;
-    private UserAdapter adapter;
+public class ListPlaces extends AppCompatActivity {
+    private List<Place> places;
+    private PlaceAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_users);
-        users = new ArrayList<>();
+        setContentView(R.layout.activity_list_places);
+        places = new ArrayList<>();
 
         Intent intentFrom = getIntent();
         RecyclerView recyclerView = findViewById(R.id.rvListPlaces);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new UserAdapter(this, users, intentFrom);
+        adapter = new PlaceAdapter(this, places, intentFrom);
         recyclerView.setAdapter(adapter);
 
     }
 
     public void onResume() {
         super.onResume();
-        users.clear();
+        places.clear();
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).allowMainThreadQueries().build();
-        users.addAll(db.userDao().getAll());
+        places.addAll(db.placeDao().getAll());
         adapter.notifyDataSetChanged();
     }
 
     public void returnNav(View view) {
-        Intent intent = new Intent(ListUsers.this, MainActivity.class);
+        Intent intent = new Intent(ListPlaces.this, MainActivity.class);
         startActivity(intent);
     }
 }
