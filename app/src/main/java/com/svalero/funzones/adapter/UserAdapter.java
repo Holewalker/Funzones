@@ -65,7 +65,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.SuperheroHolde
             parentView = view;
             username = view.findViewById(R.id.listName);
             password = view.findViewById(R.id.listDescription);
-            email = view.findViewById(R.id.listAddress);
+            email = view.findViewById(R.id.listDate);
             delete = view.findViewById(R.id.btnEdit);
 
 

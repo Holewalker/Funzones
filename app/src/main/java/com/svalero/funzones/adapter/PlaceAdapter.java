@@ -71,9 +71,9 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.SuperheroHol
             parentView = view;
             name = view.findViewById(R.id.listName);
             description = view.findViewById(R.id.listDescription);
-            address = view.findViewById(R.id.listAddress);
-            latitude = view.findViewById(R.id.listLatitude);
-            longitude = view.findViewById(R.id.listLongitude);
+            address = view.findViewById(R.id.listDate);
+            latitude = view.findViewById(R.id.listUserName);
+            longitude = view.findViewById(R.id.listPlaceName);
             edit = view.findViewById(R.id.btnEdit);
 
             delete = view.findViewById(R.id.btnDelete);
