@@ -11,6 +11,7 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -60,6 +61,7 @@ public class AddActivity extends AppCompatActivity {
         EditText addActivityPlaceName = findViewById(R.id.addActivityPlaceName);
         EditText addActivityName = findViewById(R.id.addActivityName);
         EditText addActivityDesc = findViewById(R.id.addActivityDescription);
+        CheckBox addActivityAva= findViewById(R.id.addActivityAvailable);
         addActivityDate = findViewById(R.id.addActivityDate);
         String unfDate = addActivityDate.getText().toString();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
@@ -79,7 +81,7 @@ public class AddActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Activity newActivity = new Activity(session.getUserId(), placeId, addActivityName.getText().toString(), addActivityDesc.getText().toString(), formDate);
+        Activity newActivity = new Activity(session.getUserId(), placeId, addActivityName.getText().toString(), addActivityDesc.getText().toString(), formDate, addActivityAva.isChecked());
 
         try {
             if (editActivity != null) {

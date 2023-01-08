@@ -50,6 +50,11 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.Superh
         holder.date.setText(String.valueOf(activity.getDate()));
         holder.userName.setText(db.userDao().getById(activity.getId_user()).getUsername());
         holder.placeName.setText(db.placeDao().getById(activity.getId_place()).getName());
+        if (activity.getAvailable()){
+            holder.available.setText(R.string.Available);
+        }else {
+            holder.available.setText(R.string.NotAvailable);
+        }
     }
 
     public int getItemCount() {
@@ -62,6 +67,7 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.Superh
         public TextView date;
         public TextView userName;
         public TextView placeName;
+        public TextView available;
         public Button delete;
         public Button edit;
         public View parentView;
@@ -74,8 +80,8 @@ public class ActivityAdapter extends RecyclerView.Adapter<ActivityAdapter.Superh
             date = view.findViewById(R.id.listDate);
             userName = view.findViewById(R.id.listUserName);
             placeName = view.findViewById(R.id.listPlaceName);
+            available = view.findViewById(R.id.listAvailable);
             edit = view.findViewById(R.id.btnEdit);
-
             delete = view.findViewById(R.id.btnDelete);
             edit.setOnClickListener(v -> editReserve(getAdapterPosition()));
 

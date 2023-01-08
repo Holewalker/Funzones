@@ -4,7 +4,6 @@ import static androidx.room.ForeignKey.CASCADE;
 
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
-import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
@@ -51,17 +50,17 @@ public class Activity implements Serializable {
     private long id_user;
     private long id_place;
     private String name;
+    private String description;
+    private Boolean available;
+    @TypeConverters(DateConverter.class)
+    private Date date;
 
-    public Activity(long id_user, long id_place, String name, String description, Date date) {
+    public Activity(long id_user, long id_place, String name, String description, Date date, Boolean available) {
         this.id_user = id_user;
         this.id_place = id_place;
         this.name = name;
         this.description = description;
         this.date = date;
+        this.available= available;
     }
-
-    private String description;
-    @TypeConverters(DateConverter.class)
-
-    private Date date;
 }

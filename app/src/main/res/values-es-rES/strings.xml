@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FunZones</string>
+    <string name="password">Contraseña</string>
+    <string name="register">Registrar</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="login">Iniciar sesion</string>
+    <string name="loginOK">Inicio de sesion correcto</string>
+    <string name="loginNOK">Fallo de inicio de sesion</string>
+    <string name="error">Ha habido un fallo inesperado</string>
+    <string name="email">Email</string>
+    <string name="logout">Cerrar sesion</string>
+    <string name="new_place">Agregar Sitio</string>
+    <string name="list_places">Lista de sitios</string>
+    <string name="list_users">Lista de usuarios</string>
+    <string name="new_activity">Nueva actividad</string>
+    <string name="list_activities">List de actividades</string>
+    <string name="confirmation">Esto podria tener consecuencias</string>
+    <string name="deleteMessage">¿Estas seguro?</string>
+    <string name="yes">SI</string>
+    <string name="no">NO</string>
+    <string name="Share">Compartir</string>
+    <string name="Delete">Borrar</string>
+    <string name="Edit">Editar</string>
+</resources>

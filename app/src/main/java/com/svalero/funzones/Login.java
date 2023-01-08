@@ -6,9 +6,11 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteConstraintException;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,18 +21,26 @@ import androidx.room.Room;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
+import com.squareup.picasso.Picasso;
 import com.svalero.funzones.db.AppDatabase;
 import com.svalero.funzones.domain.User;
 import com.svalero.funzones.utils.SessionUtil;
 
+import java.io.InputStream;
+import java.net.URL;
+
 public class Login extends AppCompatActivity {
     private SessionUtil session;//global variable
+    boolean flipFlop = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         checkExternalStoragePermission();
+        checkInternetPermission();
+        ImageView imageView = findViewById(R.id.imageView);
+        Picasso.get().load("https://picsum.photos/500.jpg").into(imageView);
         TextView logUser = findViewById(R.id.logUsername);
         Intent intentFrom = getIntent();
         String username = intentFrom.getStringExtra("username");
@@ -40,6 +50,21 @@ public class Login extends AppCompatActivity {
         }
         session.setUserId(0L);
         session.setUserName("");
+    }
+
+    public void refresh(View view) {
+
+        String path = "https://picsum.photos/500?random=1.jpg";
+        String path2 = "https://picsum.photos/500?random=2.jpg";
+        ImageView imageView = findViewById(R.id.imageView);
+
+        if (flipFlop) {
+            Picasso.get().load(path).into(imageView);
+            flipFlop = false;
+        } else {
+            Picasso.get().load(path2).into(imageView);
+            flipFlop = true;
+        }
     }
 
     public void login(View view) {
@@ -82,6 +107,16 @@ public class Login extends AppCompatActivity {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 225);
+            }
+        }
+    }
+
+    private void checkInternetPermission() {
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.INTERNET)) {
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET}, 225);
             }
         }
     }

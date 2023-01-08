@@ -48,5 +48,7 @@ dependencies {
     //SQLite
     implementation "androidx.room:room-runtime:2.4.3"
     annotationProcessor "androidx.room:room-compiler:2.4.3"
+    //images
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 }

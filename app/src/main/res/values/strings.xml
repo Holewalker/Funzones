@@ -21,5 +21,7 @@
     <string name="Share">Share</string>
     <string name="Delete">Delete</string>
     <string name="Edit">Edit</string>
+    <string name="Available">Available</string>
+    <string name="NotAvailable">Not Available</string>
 
 </resources>

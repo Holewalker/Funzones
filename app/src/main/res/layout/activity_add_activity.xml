@@ -83,5 +83,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.708" />
 
+    <CheckBox
+        android:id="@+id/addActivityAvailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/Available"
+        app:layout_constraintEnd_toEndOf="@+id/addActivityDate"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/addActivityDate"
+        app:layout_constraintTop_toBottomOf="@+id/addActivityDate" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
