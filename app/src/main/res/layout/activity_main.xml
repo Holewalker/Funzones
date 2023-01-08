@@ -38,7 +38,20 @@
         app:layout_constraintTop_toBottomOf="@+id/btnListPlaces" />
 
     <Button
-        android:id="@+id/btnLogout"
+        android:id="@+id/btnShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="share"
+        android:text="@string/Share"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.959" />
+
+    <Button
+        android:id="@+id/btnLogout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="logoutNav"
@@ -74,10 +87,9 @@
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnLogout"
-        app:layout_constraintEnd_toEndOf="@+id/btnLogout"
-        app:layout_constraintStart_toStartOf="@+id/btnLogout" />
+        app:layout_constraintBottom_toTopOf="@+id/btnLogout2"
+        app:layout_constraintEnd_toEndOf="@+id/btnLogout2"
+        app:layout_constraintStart_toStartOf="@+id/btnLogout2" />
 
 
 

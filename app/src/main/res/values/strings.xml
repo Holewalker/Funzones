@@ -18,5 +18,6 @@
     <string name="deleteMessage">Are you sure?</string>
     <string name="yes" >YES</string>
     <string name="no" >NO</string>
+    <string name="Share">Share</string>
 
 </resources>

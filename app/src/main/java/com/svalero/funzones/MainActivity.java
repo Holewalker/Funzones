@@ -27,23 +27,23 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-/*
-    public void addActivityNav() {
-        Intent intent = new Intent(MainActivity.this, AddActivity.class);
-        startActivity(intent);
-    }
-    public void addPlaceNav() {
-        Intent intent = new Intent(MainActivity.this, AddPlace.class);
-        startActivity(intent);
-    }
-    public void listActivitiesNav() {
-        Intent intent = new Intent(MainActivity.this, ListActivities.class);
-        startActivity(intent);
-    }
-    public void listPlacesNav() {
-        Intent intent = new Intent(MainActivity.this, ListPlaces.class);
-        startActivity(intent);
-    }*/
+    /*
+        public void addActivityNav() {
+            Intent intent = new Intent(MainActivity.this, AddActivity.class);
+            startActivity(intent);
+        }
+        public void addPlaceNav() {
+            Intent intent = new Intent(MainActivity.this, AddPlace.class);
+            startActivity(intent);
+        }
+        public void listActivitiesNav() {
+            Intent intent = new Intent(MainActivity.this, ListActivities.class);
+            startActivity(intent);
+        }
+        public void listPlacesNav() {
+            Intent intent = new Intent(MainActivity.this, ListPlaces.class);
+            startActivity(intent);
+        }*/
     public void listUsersNav(View view) {
         Intent intent = new Intent(MainActivity.this, ListUsers.class);
         startActivity(intent);
@@ -52,6 +52,17 @@ public class MainActivity extends AppCompatActivity {
     public void logoutNav(View view) {
         Intent intent = new Intent(MainActivity.this, Login.class);
         startActivity(intent);
+    }
+
+
+    public void share(View view) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Hey, you should try this app!");
+        sendIntent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
     }
 }
 
