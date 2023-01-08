@@ -27,3 +27,16 @@ public class SessionUtil {
         return prefs.getString("userName", "");
     }
 }
+
+
+
+/*
+USO:
+        private SessionUtil session;//global variable
+        session = new SessionUtil(Login.this); //damos contexto en onCreate
+        session set cuando hagamos login.
+
+        Despues recuperamos con:
+        session.getUserId()
+        session.getUsername()
+ */
