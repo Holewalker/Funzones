@@ -20,6 +20,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+/*
 @Entity(
         foreignKeys = {
                 @ForeignKey(
@@ -35,17 +36,23 @@ import lombok.NoArgsConstructor;
                         onDelete = CASCADE
                 )},
         indices = {
+                @Index(value = {"id"}, unique = true),
                 @Index("id_user"),
-                @Index("id_place"),
+                @Index("id_place")
         })
+*/
+@Entity(foreignKeys = {
+        @ForeignKey(entity = User.class, parentColumns = "id", childColumns = "id_user", onDelete = CASCADE),
+        @ForeignKey(entity = Place.class, parentColumns = "id", childColumns = "id_place", onDelete = CASCADE)
+})
 public class Activity implements Serializable {
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private int id_user;
-    private int id_place;
+    private long id;
+    private long id_user;
+    private long id_place;
     private String name;
 
-    public Activity(int id_user, int id_place, String name, String description, String date) {
+    public Activity(long id_user, long id_place, String name, String description, Date date) {
         this.id_user = id_user;
         this.id_place = id_place;
         this.name = name;
@@ -54,5 +61,7 @@ public class Activity implements Serializable {
     }
 
     private String description;
-    private String date;
+    @TypeConverters(DateConverter.class)
+
+    private Date date;
 }

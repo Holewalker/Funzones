@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,8 +54,8 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(this, R.string.loginOK, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Login.this, MainActivity.class);
                 intent.putExtra("username", user.getUsername());
-                intent.putExtra("id_user", String.valueOf(user.getId()));
-
+                intent.putExtra("idUser", user.getId());
+                Log.i("AddActivity", "iduser" + user.getId());
                 startActivity(intent);
             } else {
                 Toast.makeText(this, R.string.loginNOK, Toast.LENGTH_LONG).show();

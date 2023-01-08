@@ -17,7 +17,7 @@ import androidx.core.content.ContextCompat;
 public class MainActivity extends AppCompatActivity {
 
     String username = null;
-    String idUser = null;
+    long idUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         TextView textViewUsername = findViewById(R.id.username);
         Intent intentFrom = getIntent();
         username = intentFrom.getStringExtra("username");
-        idUser = intentFrom.getStringExtra("id_user");
+        idUser = intentFrom.getLongExtra("idUser", 0L);
 
         if (username != null) {
             textViewUsername.setText(username);
@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, AddActivity.class);
         intent.putExtra("username", username);
         intent.putExtra("id_user", idUser);
+        Log.i("AddActivity", "iduser " + idUser);
+
         startActivity(intent);
     }
 
