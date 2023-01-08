@@ -1,18 +1,15 @@
 package com.svalero.funzones;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import com.svalero.funzones.utils.SessionUtil;
 
@@ -70,5 +67,30 @@ public class MainActivity extends AppCompatActivity {
         Intent shareIntent = Intent.createChooser(sendIntent, null);
         startActivity(shareIntent);
     }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.menuActivities) {
+            Intent intent = new Intent(this, ListActivities.class);
+            startActivity(intent);
+            return true;
+        } else if (item.getItemId() == R.id.menuPlaces) {
+            Intent intent = new Intent(this, ListPlaces.class);
+            startActivity(intent);
+            return true;
+        } else if (item.getItemId() == R.id.menuUsers) {
+            Intent intent = new Intent(this, ListUsers.class);
+            startActivity(intent);
+            return true;
+
+
+        }
+        return false;
+    }
 }
+
 
