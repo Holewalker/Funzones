@@ -27,11 +27,20 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         checkExternalStoragePermission();
+        TextView logUser = findViewById(R.id.logUsername);
+        Intent intentFrom = getIntent();
+        String username = intentFrom.getStringExtra("username");
+        if (username != null) {
+            logUser.setText(username);
+        }
+
     }
 
     public void login(View view) {
-        TextView logUser = findViewById(R.id.regUsername);
-        TextView logPassword = findViewById(R.id.regPassword);
+
+        TextView logUser = findViewById(R.id.logUsername);
+        TextView logPassword = findViewById(R.id.logPassword);
+        //Conseguir usuario logueado
 
         String username = logUser.getText().toString();
         String password = logPassword.getText().toString();
@@ -51,11 +60,12 @@ public class Login extends AppCompatActivity {
             }
         } catch (SQLiteConstraintException sce) {
             Snackbar.make(logUser, R.string.error, BaseTransientBottomBar.LENGTH_LONG).show();
-        }finally {
+        } finally {
             db.close();
         }
     }
-    public void registerUser(View view){
+
+    public void registerUser(View view) {
         Intent intent = new Intent(Login.this, AddUser.class);
         startActivity(intent);
     }

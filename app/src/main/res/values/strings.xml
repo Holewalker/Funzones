@@ -4,8 +4,8 @@
     <string name="register">Register</string>
     <string name="username">Username</string>
     <string name="login">Login</string>
-    <string name="loginOK" />
-    <string name="loginNOK" />
+    <string name="loginOK" >Login success</string>
+    <string name="loginNOK" >Login Failure</string>
     <string name="error">Something went wrong</string>
     <string name="email">email</string>
 

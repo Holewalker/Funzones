@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.736" />
 
     <EditText
-        android:id="@+id/regUsername"
+        android:id="@+id/logUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="332dp"
@@ -32,14 +32,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/regPassword"
+        android:id="@+id/logPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/regUsername"
-        app:layout_constraintTop_toBottomOf="@+id/regUsername" />
+        app:layout_constraintStart_toStartOf="@+id/logUsername"
+        app:layout_constraintTop_toBottomOf="@+id/logUsername" />
 
     <EditText
         android:id="@+id/regEmail"
@@ -48,6 +48,6 @@
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/regUsername"
-        app:layout_constraintTop_toBottomOf="@+id/regPassword" />
+        app:layout_constraintStart_toStartOf="@+id/logUsername"
+        app:layout_constraintTop_toBottomOf="@+id/logPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>
