@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.svalero.funzones.db.AppDatabase;
 import com.svalero.funzones.domain.Activity;
 import com.svalero.funzones.utils.DatePickerFragment;
+import com.svalero.funzones.utils.SessionUtil;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -26,9 +27,8 @@ import java.util.Locale;
 
 public class AddActivity extends AppCompatActivity {
     private Activity editActivity = null;
-    String username = null;
-    long idUser;
     EditText addActivityDate;
+    private SessionUtil session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,8 @@ public class AddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_activity);
         Intent intentFrom = getIntent();
-        username = intentFrom.getStringExtra("username");
-        idUser = intentFrom.getLongExtra("idUser", 0L);
-        Log.i("AddActivity", "iduser" + idUser);
-        Log.i("AddActivity", "username " + username);
+        session = new SessionUtil(AddActivity.this);
+        Log.i("Addplace", "iduser: " + session.getUserId());
 
         editActivity = (Activity) intentFrom.getSerializableExtra("activity");
         EditText addActivityIdPlace = findViewById(R.id.addActivityPlaceName);
@@ -68,13 +66,6 @@ public class AddActivity extends AppCompatActivity {
         Date formDate;
         String placeName = addActivityPlaceName.getText().toString();
 
-
-        //no consigo pasar idUser asi que lo consultamos en la base de datos con el usuario.
-        try {
-            idUser = db.userDao().getByName(username).getId();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         try {
             formDate = format.parse(unfDate);
         } catch (ParseException e) {
@@ -88,9 +79,7 @@ public class AddActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Log.i("AddActivity", "place id" + placeId);
-        Log.i("AddActivity", "iduser" + idUser);
-        Activity newActivity = new Activity(idUser, placeId, addActivityName.getText().toString(), addActivityDesc.getText().toString(), formDate);
+        Activity newActivity = new Activity(session.getUserId(), placeId, addActivityName.getText().toString(), addActivityDesc.getText().toString(), formDate);
 
         try {
             if (editActivity != null) {

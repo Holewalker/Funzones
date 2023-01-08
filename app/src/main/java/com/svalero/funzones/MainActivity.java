@@ -14,39 +14,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-public class MainActivity extends AppCompatActivity {
+import com.svalero.funzones.utils.SessionUtil;
 
-    String username = null;
-    long idUser;
+public class MainActivity extends AppCompatActivity {
+    private SessionUtil session;//global variable
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView textViewUsername = findViewById(R.id.username);
-        Intent intentFrom = getIntent();
-        username = intentFrom.getStringExtra("username");
-        idUser = intentFrom.getLongExtra("idUser", 0L);
+        session = new SessionUtil(MainActivity.this);
 
-        if (username != null) {
-            textViewUsername.setText(username);
-        }
+        TextView textViewUsername = findViewById(R.id.username);
+        textViewUsername.setText(session.getUserName());
     }
 
 
     public void listActivitiesNav(View view) {
         Intent intent = new Intent(MainActivity.this, ListActivities.class);
-        intent.putExtra("username", username);
-        intent.putExtra("idUser", idUser);
         startActivity(intent);
     }
 
     public void addActivityNav(View view) {
         Intent intent = new Intent(MainActivity.this, AddActivity.class);
-        intent.putExtra("username", username);
-        intent.putExtra("id_user", idUser);
-        Log.i("AddActivity", "iduser " + idUser);
-
         startActivity(intent);
     }
 

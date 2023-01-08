@@ -21,8 +21,11 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.svalero.funzones.db.AppDatabase;
 import com.svalero.funzones.domain.User;
+import com.svalero.funzones.utils.SessionUtil;
 
 public class Login extends AppCompatActivity {
+    private SessionUtil session;//global variable
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,17 +34,18 @@ public class Login extends AppCompatActivity {
         TextView logUser = findViewById(R.id.logUsername);
         Intent intentFrom = getIntent();
         String username = intentFrom.getStringExtra("username");
+        session = new SessionUtil(Login.this);
         if (username != null) {
             logUser.setText(username);
         }
-
+        session.setUserId(0L);
+        session.setUserName("");
     }
 
     public void login(View view) {
 
         TextView logUser = findViewById(R.id.logUsername);
         TextView logPassword = findViewById(R.id.logPassword);
-        //Conseguir usuario logueado
 
         String username = logUser.getText().toString();
         String password = logPassword.getText().toString();
@@ -53,9 +57,9 @@ public class Login extends AppCompatActivity {
             if (user != null) {
                 Toast.makeText(this, R.string.loginOK, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(Login.this, MainActivity.class);
-                intent.putExtra("username", user.getUsername());
-                intent.putExtra("idUser", user.getId());
-                Log.i("AddActivity", "iduser" + user.getId());
+                session.setUserId(user.getId());
+                session.setUserName(user.getUsername());
+                Log.i("AddActivity", "iduser" + session.getUserId());
                 startActivity(intent);
             } else {
                 Toast.makeText(this, R.string.loginNOK, Toast.LENGTH_LONG).show();

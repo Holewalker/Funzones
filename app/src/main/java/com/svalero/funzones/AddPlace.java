@@ -8,20 +8,22 @@ import androidx.room.Room;
 import android.content.Intent;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.svalero.funzones.db.AppDatabase;
 import com.svalero.funzones.domain.Place;
-import com.svalero.funzones.domain.User;
+import com.svalero.funzones.utils.SessionUtil;
 
 public class AddPlace extends AppCompatActivity {
     private Place editPlace= null;
-
+    private SessionUtil session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        session = new SessionUtil(AddPlace.this);
+        Log.i("Addplace", "iduser: " + session.getUserId());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_place);
         Intent intentFrom = getIntent();
