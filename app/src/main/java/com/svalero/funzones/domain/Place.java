@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 
 public class Place implements Serializable {
     @PrimaryKey(autoGenerate = true)
-    private long id;
+    private int id;
     private String name;
     private String description;
     private String address;

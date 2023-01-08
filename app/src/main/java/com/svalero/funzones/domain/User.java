@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class User {
 
     @PrimaryKey(autoGenerate = true)
-    private long id;
+    private int id;
     private String username;
     private String password;
     private String email;

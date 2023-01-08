@@ -40,11 +40,19 @@ import lombok.NoArgsConstructor;
         })
 public class Activity implements Serializable {
     @PrimaryKey(autoGenerate = true)
-    private long id;
-    private long id_user;
-    private long id_place;
+    private int id;
+    private int id_user;
+    private int id_place;
     private String name;
+
+    public Activity(int id_user, int id_place, String name, String description, String date) {
+        this.id_user = id_user;
+        this.id_place = id_place;
+        this.name = name;
+        this.description = description;
+        this.date = date;
+    }
+
     private String description;
-    @TypeConverters(DateConverter.class)
-    private Date date;
+    private String date;
 }
