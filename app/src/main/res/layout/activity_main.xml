@@ -3,18 +3,82 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_height="match_parent">
+
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnNewPlace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login"
+        android:layout_marginTop="20dp"
+        android:text="@string/new_place"
+        app:layout_constraintEnd_toEndOf="@+id/btnNewActivity"
+        app:layout_constraintStart_toStartOf="@+id/btnNewActivity"
+        app:layout_constraintTop_toBottomOf="@+id/btnNewActivity" />
+
+    <Button
+        android:id="@+id/btnListPlaces"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/list_places"
+        app:layout_constraintEnd_toEndOf="@+id/btnListActivities"
+        app:layout_constraintStart_toStartOf="@+id/btnListActivities"
+        app:layout_constraintTop_toBottomOf="@+id/btnListActivities" />
+
+    <Button
+        android:id="@+id/btnListUsers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="listUsersNav"
+        android:text="@string/list_users"
+        app:layout_constraintEnd_toEndOf="@+id/btnListPlaces"
+        app:layout_constraintStart_toStartOf="@+id/btnListPlaces"
+        app:layout_constraintTop_toBottomOf="@+id/btnListPlaces" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="logoutNav"
+        android:text="@string/logout"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.959" />
+
+    <Button
+        android:id="@+id/btnNewActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:text="@string/new_activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.692" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnListActivities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/list_activities"
+        app:layout_constraintEnd_toEndOf="@+id/btnNewPlace"
+        app:layout_constraintStart_toStartOf="@+id/btnNewPlace"
+        app:layout_constraintTop_toBottomOf="@+id/btnNewPlace" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogout"
+        app:layout_constraintEnd_toEndOf="@+id/btnLogout"
+        app:layout_constraintStart_toStartOf="@+id/btnLogout" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

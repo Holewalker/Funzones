@@ -4,9 +4,19 @@
     <string name="register">Register</string>
     <string name="username">Username</string>
     <string name="login">Login</string>
-    <string name="loginOK" >Login success</string>
-    <string name="loginNOK" >Login Failure</string>
+    <string name="loginOK">Login success</string>
+    <string name="loginNOK">Login Failure</string>
     <string name="error">Something went wrong</string>
     <string name="email">email</string>
+    <string name="logout">logout</string>
+    <string name="new_place">New Place</string>
+    <string name="list_places">List places</string>
+    <string name="list_users">List users</string>
+    <string name="new_activity">New Activity</string>
+    <string name="list_activities">List Activities</string>
+    <string name="confirmation" >This might have consequences…</string>
+    <string name="deleteMessage">Are you sure?</string>
+    <string name="yes" >YES</string>
+    <string name="no" >NO</string>
 
 </resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/listUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/listPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/listUsername"
+        app:layout_constraintStart_toStartOf="@+id/listUsername"
+        app:layout_constraintTop_toBottomOf="@+id/listUsername" />
+
+    <TextView
+        android:id="@+id/listEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/listPassword"
+        app:layout_constraintStart_toStartOf="@+id/listPassword"
+        app:layout_constraintTop_toBottomOf="@+id/listPassword" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Delete user"
+        app:layout_constraintEnd_toEndOf="@+id/listEmail"
+        app:layout_constraintStart_toStartOf="@+id/listEmail"
+        app:layout_constraintTop_toBottomOf="@+id/listEmail" />
+</androidx.constraintlayout.widget.ConstraintLayout>
