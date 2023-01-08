@@ -29,7 +29,7 @@ public class ListPlaces extends AppCompatActivity {
         places = new ArrayList<>();
 
         Intent intentFrom = getIntent();
-        RecyclerView recyclerView = findViewById(R.id.rvListPlaces);
+        RecyclerView recyclerView = findViewById(R.id.rvListActivities);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);

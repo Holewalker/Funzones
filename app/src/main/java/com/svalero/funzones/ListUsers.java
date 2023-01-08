@@ -29,7 +29,7 @@ public class ListUsers extends AppCompatActivity {
         users = new ArrayList<>();
 
         Intent intentFrom = getIntent();
-        RecyclerView recyclerView = findViewById(R.id.rvListPlaces);
+        RecyclerView recyclerView = findViewById(R.id.rvListActivities);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);

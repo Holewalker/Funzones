@@ -19,5 +19,7 @@
     <string name="yes">YES</string>
     <string name="no">NO</string>
     <string name="Share">Share</string>
+    <string name="Delete">Delete</string>
+    <string name="Edit">Edit</string>
 
 </resources>
