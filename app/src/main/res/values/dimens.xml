@@ -1,1 +1,4 @@
-<resources></resources>
+<resources>
+    <dimen name="lat" />
+    <dimen name="lon" />
+</resources>

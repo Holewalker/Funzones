@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.svalero.funzones.AddPlace;
+import com.svalero.funzones.MainActivity;
 import com.svalero.funzones.R;
+import com.svalero.funzones.ShowMap;
 import com.svalero.funzones.db.AppDatabase;
 import com.svalero.funzones.domain.Place;
 
@@ -64,6 +66,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.SuperheroHol
         public TextView longitude;
         public Button delete;
         public Button edit;
+        public Button map;
         public View parentView;
 
         public SuperheroHolder(View view) {
@@ -75,12 +78,22 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.SuperheroHol
             latitude = view.findViewById(R.id.listUserName);
             longitude = view.findViewById(R.id.listPlaceName);
             edit = view.findViewById(R.id.btnEdit);
-
+            map = view.findViewById(R.id.btnMap);
             delete = view.findViewById(R.id.btnDelete);
             edit.setOnClickListener(v -> editReserve(getAdapterPosition()));
-
+            map.setOnClickListener(v -> showMap(getAdapterPosition()));
             delete.setOnClickListener(v -> deletePlace(getAdapterPosition()));
+
+
         }
+    }
+
+    public void showMap(int position) {
+
+        Place place = places.get(position);
+        Intent intent = new Intent(context, ShowMap.class);
+        intent.putExtra("place", place);
+        context.startActivity(intent);
     }
 
     public void deletePlace(int position) {

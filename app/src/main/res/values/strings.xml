@@ -23,5 +23,6 @@
     <string name="Edit">Edit</string>
     <string name="Available">Available</string>
     <string name="NotAvailable">Not Available</string>
+    <string name="Map">Map</string>
 
 </resources>

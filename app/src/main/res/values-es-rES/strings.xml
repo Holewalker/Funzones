@@ -22,4 +22,6 @@
     <string name="Share">Compartir</string>
     <string name="Delete">Borrar</string>
     <string name="Edit">Editar</string>
+    <string name="Available">Disponible</string>
+    <string name="NotAvailable">No disponible</string>
 </resources>
