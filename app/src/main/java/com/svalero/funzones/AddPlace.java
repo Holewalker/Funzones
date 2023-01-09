@@ -18,8 +18,9 @@ import com.svalero.funzones.domain.Place;
 import com.svalero.funzones.utils.SessionUtil;
 
 public class AddPlace extends AppCompatActivity {
-    private Place editPlace= null;
+    private Place editPlace = null;
     private SessionUtil session;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         session = new SessionUtil(AddPlace.this);
@@ -35,10 +36,12 @@ public class AddPlace extends AppCompatActivity {
         EditText addPlaceLat = findViewById(R.id.addPlaceLat);
 
         if (editPlace != null) {
+            Log.i("addActivity"," " + editPlace.getId());
+
             addPlaceName.setText(editPlace.getName());
             addPlaceDesc.setText(editPlace.getDescription());
             addPlaceAddress.setText(editPlace.getAddress());
-             addPlaceLon.setText(String.valueOf(editPlace.getLongitude()));
+            addPlaceLon.setText(String.valueOf(editPlace.getLongitude()));
             addPlaceLat.setText(String.valueOf(editPlace.getLatitude()));
         }
     }
@@ -51,11 +54,13 @@ public class AddPlace extends AppCompatActivity {
         EditText addPlaceAddress = findViewById(R.id.addPlaceAddress);
         EditText addPlaceLon = findViewById(R.id.addPlaceLon);
         EditText addPlaceLat = findViewById(R.id.addPlaceLat);
+
         Place newPlace = new Place(addPlaceName.getText().toString(), addPlaceDesc.getText().toString(), addPlaceAddress.getText().toString(), Double.parseDouble(addPlaceLon.getText().toString()), Double.parseDouble(addPlaceLat.getText().toString()));
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).allowMainThreadQueries().build();
 
         try {
             if (editPlace != null) {
+                newPlace.setId(editPlace.getId());
                 db.placeDao().update(newPlace);
             } else
                 db.placeDao().insert(newPlace);

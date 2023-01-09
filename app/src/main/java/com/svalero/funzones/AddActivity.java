@@ -47,10 +47,15 @@ public class AddActivity extends AppCompatActivity {
         addActivityDate = findViewById(R.id.addActivityDate);
 
         if (editActivity != null) {
+            Date unfDate = editActivity.getDate();
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+            String formDate;
+
+            formDate = format.format(unfDate);
             addActivityIdPlace.setText(String.valueOf(editActivity.getId_place()));
             addActivityName.setText(editActivity.getName());
             addActivityDesc.setText(editActivity.getDescription());
-            addActivityDate.setText(String.valueOf(editActivity.getDate()));
+            addActivityDate.setText(formDate);
         }
     }
 
@@ -58,15 +63,15 @@ public class AddActivity extends AppCompatActivity {
     public void register(View view) {
         final AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).allowMainThreadQueries().build();
 
-        EditText addActivityPlaceName = findViewById(R.id.addActivityPlaceName);
+        EditText addActivityIdPlace = findViewById(R.id.addActivityPlaceName);
         EditText addActivityName = findViewById(R.id.addActivityName);
         EditText addActivityDesc = findViewById(R.id.addActivityDescription);
-        CheckBox addActivityAva= findViewById(R.id.addActivityAvailable);
+        CheckBox addActivityAva = findViewById(R.id.addActivityAvailable);
         addActivityDate = findViewById(R.id.addActivityDate);
         String unfDate = addActivityDate.getText().toString();
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
         Date formDate;
-        String placeName = addActivityPlaceName.getText().toString();
+        long placeId = Long.parseLong(addActivityIdPlace.getText().toString());
 
         try {
             formDate = format.parse(unfDate);
@@ -74,21 +79,17 @@ public class AddActivity extends AppCompatActivity {
             e.printStackTrace();
             return;
         }
-
-        long placeId = 0L;
-        try {
-            placeId = db.placeDao().getByName(placeName).getId();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Log.i("addActivity", " " + editActivity);
         Activity newActivity = new Activity(session.getUserId(), placeId, addActivityName.getText().toString(), addActivityDesc.getText().toString(), formDate, addActivityAva.isChecked());
+        Log.i("addActivity2", " " + newActivity);
 
         try {
             if (editActivity != null) {
+                newActivity.setId(editActivity.getId());
                 db.activityDao().update(newActivity);
-            } else
+            } else {
                 db.activityDao().insert(newActivity);
-
+            }
             Intent intent = new Intent(AddActivity.this, MainActivity.class);
             Toast.makeText(this, newActivity.getName() + " Has been registered", Toast.LENGTH_LONG).show();
             startActivity(intent);
